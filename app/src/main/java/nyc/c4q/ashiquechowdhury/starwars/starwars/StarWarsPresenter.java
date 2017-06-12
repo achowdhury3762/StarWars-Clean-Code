@@ -1,7 +1,8 @@
-package nyc.c4q.ashiquechowdhury.starwars.starwars.starwars;
+package nyc.c4q.ashiquechowdhury.starwars.starwars;
 
-import nyc.c4q.ashiquechowdhury.starwars.starwars.network.Service;
-import nyc.c4q.ashiquechowdhury.starwars.starwars.network.StarWarsCharacter;
+
+import nyc.c4q.ashiquechowdhury.starwars.network.Service;
+import nyc.c4q.ashiquechowdhury.starwars.network.StarWarsCharacter;
 
 public class StarWarsPresenter {
     private Service service;

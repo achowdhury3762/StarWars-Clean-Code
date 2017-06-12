@@ -1,4 +1,4 @@
-package nyc.c4q.ashiquechowdhury.starwars.starwars.network;
+package nyc.c4q.ashiquechowdhury.starwars.network;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;

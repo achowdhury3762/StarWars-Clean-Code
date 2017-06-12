@@ -1,6 +1,7 @@
-package nyc.c4q.ashiquechowdhury.starwars.starwars.starwars;
+package nyc.c4q.ashiquechowdhury.starwars.starwars;
 
-import nyc.c4q.ashiquechowdhury.starwars.starwars.network.StarWarsCharacter;
+
+import nyc.c4q.ashiquechowdhury.starwars.network.StarWarsCharacter;
 
 public interface StarWarsView {
     void load();

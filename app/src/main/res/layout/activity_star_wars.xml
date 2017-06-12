@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context="nyc.c4q.ashiquechowdhury.starwars.starwars.starwars.StarWarsActivity">
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context="nyc.c4q.ashiquechowdhury.starwars.starwars.StarWarsActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <EditText
+            android:id="@+id/starwars_id_input"
+            android:hint="Character ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/search_button"
+        android:text="@string/search_button"
+        android:onClick="onClickSearch"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_layout"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/character_name_tview"
+        android:layout_below="@id/search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ProgressBar
+        android:layout_centerInParent="true"
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-</LinearLayout>
+</RelativeLayout>
