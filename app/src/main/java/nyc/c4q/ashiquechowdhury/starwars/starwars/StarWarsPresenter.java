@@ -1,17 +1,21 @@
 package nyc.c4q.ashiquechowdhury.starwars.starwars;
 
 
+import javax.inject.Inject;
+
 import nyc.c4q.ashiquechowdhury.starwars.network.Service;
 import nyc.c4q.ashiquechowdhury.starwars.network.StarWarsCharacter;
 
 public class StarWarsPresenter {
+    private final StarWarsView view;
     private Service service;
-    private StarWarsView view;
 
+    @Inject
     public StarWarsPresenter(Service service, StarWarsView view) {
         this.service = service;
         this.view = view;
     }
+
 
     public void getCharacter(int charId) {
         view.load();
