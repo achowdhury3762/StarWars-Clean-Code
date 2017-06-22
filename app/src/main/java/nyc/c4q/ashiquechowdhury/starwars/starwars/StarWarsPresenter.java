@@ -29,10 +29,10 @@ public class StarWarsPresenter {
             }
 
             @Override
-            public void onError() {
+            public void onError(Throwable e) {
                 view.stopload();
 
-                view.showLoadingError();
+                view.showLoadingError(e.getMessage());
             }
         });
     }

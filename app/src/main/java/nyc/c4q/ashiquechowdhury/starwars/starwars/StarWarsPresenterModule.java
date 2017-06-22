@@ -1,8 +1,7 @@
-package nyc.c4q.ashiquechowdhury.starwars.network;
+package nyc.c4q.ashiquechowdhury.starwars.starwars;
 
 import dagger.Module;
 import dagger.Provides;
-import nyc.c4q.ashiquechowdhury.starwars.starwars.StarWarsView;
 
 @Module
 public class StarWarsPresenterModule {

@@ -6,21 +6,19 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import nyc.c4q.ashiquechowdhury.starwars.BaseApp;
 import nyc.c4q.ashiquechowdhury.starwars.R;
-import nyc.c4q.ashiquechowdhury.starwars.network.Service;
 import nyc.c4q.ashiquechowdhury.starwars.network.StarWarsCharacter;
-import nyc.c4q.ashiquechowdhury.starwars.network.StarWarsPresenterModule;
 
 public class StarWarsActivity extends AppCompatActivity implements StarWarsView {
     private ProgressBar progressBar;
     private EditText characterIdInput;
     private TextView characterNameTextV;
 
-    @Inject Service service;
     @Inject StarWarsPresenter presenter;
 
     @Override
@@ -50,8 +48,10 @@ public class StarWarsActivity extends AppCompatActivity implements StarWarsView 
     }
 
     @Override
-    public void showLoadingError() {
+    public void showLoadingError(String loadingError) {
         progressBar.setVisibility(View.INVISIBLE);
+
+        Toast.makeText(getApplicationContext(), "Please enter a different number", Toast.LENGTH_LONG).show();
     }
 
     @Override

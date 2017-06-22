@@ -8,7 +8,7 @@ public interface StarWarsView {
 
     void showCharacter(StarWarsCharacter character);
 
-    void showLoadingError();
+    void showLoadingError(String error);
 
     void stopload();
 }

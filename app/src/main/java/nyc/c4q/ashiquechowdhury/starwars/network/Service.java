@@ -25,7 +25,7 @@ public class Service {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        callback.onError();
+                        callback.onError(e);
                     }
 
                     @Override
@@ -38,6 +38,6 @@ public class Service {
     public interface CharacterCallback {
         void onSuccess(StarWarsCharacter character);
 
-        void onError();
+        void onError(Throwable e);
     }
 }
