@@ -1,7 +1,7 @@
 package nyc.c4q.ashiquechowdhury.starwars.starwars;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
-import nyc.c4q.ashiquechowdhury.starwars.BaseApp;
+import dagger.android.AndroidInjection;
 import nyc.c4q.ashiquechowdhury.starwars.R;
-import nyc.c4q.ashiquechowdhury.starwars.network.StarWarsCharacter;
+import nyc.c4q.ashiquechowdhury.starwars.model.StarWarsCharacter;
 
-public class StarWarsActivity extends AppCompatActivity implements StarWarsView {
+public class StarWarsActivity extends Activity implements StarWarsView {
     private ProgressBar progressBar;
     private EditText characterIdInput;
     private TextView characterNameTextV;
@@ -26,9 +26,7 @@ public class StarWarsActivity extends AppCompatActivity implements StarWarsView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_star_wars);
 
-        ((BaseApp) getApplication()).getDepsBuilder()
-                .starWarsPresenterModule(new StarWarsPresenterModule(this))
-                .build().inject(this);
+        AndroidInjection.inject(this);
 
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.INVISIBLE);

@@ -1,21 +1,31 @@
 package nyc.c4q.ashiquechowdhury.starwars;
 
+import android.app.Activity;
 import android.app.Application;
 
-import nyc.c4q.ashiquechowdhury.starwars.deps.DaggerDepsComponent;
-import nyc.c4q.ashiquechowdhury.starwars.network.NetModule;
+import javax.inject.Inject;
 
-public class BaseApp extends Application {
-    public DaggerDepsComponent.Builder depsBuilder;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class BaseApp extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> activityInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        depsBuilder = DaggerDepsComponent.builder().netModule(new NetModule("http://swapi.co/api/"));
+        DaggerAppComponent.builder()
+                .application(this)
+                .build()
+                .inject(this);
     }
 
-    public DaggerDepsComponent.Builder getDepsBuilder() {
-        return depsBuilder;
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return activityInjector;
     }
 }
